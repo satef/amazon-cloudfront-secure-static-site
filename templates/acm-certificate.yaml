@@ -30,7 +30,7 @@ Resources:
   Certificate:
     Type: Custom::Certificate
     Properties:
-      DomainName: !Sub '${SubDomain}.${DomainName}'
+      DomainName: !Sub '${SubDomain}.${DomainName}.'
       SubjectAlternativeNames:
         Fn::If:
           - CreateApexConfig
@@ -50,7 +50,7 @@ Resources:
     Type: Custom::CertificateDNSRecord
     Properties:
       CertificateArn: !Ref Certificate
-      DomainName: !Sub '${SubDomain}.${DomainName}'
+      DomainName: !Sub '${SubDomain}.${DomainName}.'
       ServiceToken: !Ref 'CFNCustomProvider'
 
   apexCertificateDNSRecord:
